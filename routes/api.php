@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Category;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix("v1")->group(function(){
 
-    Route::prefix("category")->controller(Category::class)->group(function(){
+    Route::prefix("category")->controller(CategoryController::class)->group(function(){
         Route::get("/","index");
         Route::post("create","store");
     });
