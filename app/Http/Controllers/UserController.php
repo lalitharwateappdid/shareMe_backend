@@ -12,6 +12,17 @@ use Kreait\Firebase\Exception\Auth\FailedToVerifyToken;
 
 class UserController extends Controller
 {
+
+    public function profile()
+    {
+        $user_data = User::find(auth()->user()->id);
+
+        return response([
+            "data" => $user_data,
+            "status" => true
+        ], 200);
+    }
+
     public function login(Request $request)
     {
         $request->validate([
